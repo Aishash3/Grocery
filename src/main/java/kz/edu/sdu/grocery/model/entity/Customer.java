@@ -4,10 +4,9 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.lang.reflect.Type;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -15,6 +14,7 @@ import javax.persistence.Table;
 @Table(name = "Customer")
 public class Customer {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     private Long id;
     @Column(name = "first_name")
