@@ -1,6 +1,6 @@
 
 
-# Grocery Rest Service
+# Grocery Rest
 
 The Grocery rest service can provide various information related to grocery management, such as:
 
