@@ -16,11 +16,12 @@ public class Orders_history {
     @Column(name = "id")
     private Long id;
     @Column(name = "modify_date")
-    private Timestamp modify_date;
+    private String modify_date;
 
     @Column(name = "status_id")
     private Long statusId;
-    @Column(name = "order_id")
-//    @ManyToOne
-    private Long orderId;
+
+    @ManyToOne
+    @JoinColumn(name = "order_id")
+    private Orders order;
 }

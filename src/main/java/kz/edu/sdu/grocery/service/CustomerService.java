@@ -33,11 +33,12 @@ public class CustomerService {
         return customerRepository.findById(id).get();
     }
     public void createCustomer(CustomerDTO customerDTO){
-         CustomerMapper customerMapper = CustomerMapper.MAPPER;
+        CustomerMapper customerMapper = CustomerMapper.MAPPER;
         Customer customer = customerMapper.toCustomer(customerDTO);
         customer.setId(getLastId());
         Customer customer1 = customerRepository.save(customer);
     }
+
     public Long getLastId(){
         return customerRepository.getMaxId();
     }
