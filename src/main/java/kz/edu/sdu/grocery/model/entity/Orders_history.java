@@ -1,10 +1,10 @@
 package kz.edu.sdu.grocery.model.entity;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.sql.Timestamp;
 
 @Data
 @NoArgsConstructor

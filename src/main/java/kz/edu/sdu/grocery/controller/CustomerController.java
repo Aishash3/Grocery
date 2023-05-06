@@ -46,8 +46,6 @@ public class CustomerController {
             }else{
                 date1="not found";
             }
-            System.out.println(date1);
-//            String date1=(String)row[6];
             String statusName = (String) row[7];
 
             Map<String, Object> result = new LinkedHashMap<>();
