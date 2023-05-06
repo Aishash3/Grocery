@@ -26,7 +26,7 @@ public class CustomerController {
         return customerService.getAllCustomers(page, size, sort);
     }
 
-    @GetMapping
+    @GetMapping("/costumer_order_info")
     public List<Map<String, Object>> getByFistName(@RequestParam(name = "fist name") String firstName) {
         List<Object[]> results = orderRepository.returnAll();
         List<Map<String, Object>> response = new ArrayList<>();
@@ -37,7 +37,7 @@ public class CustomerController {
                 continue;
             }
             String lastName = (String) row[2];
-            Long productId = (Long) row[3];
+            String productName = (String) row[3];
             Integer quantity = (Integer) row[4];
             Long orderId = (Long) row[5];
             String date1;
@@ -52,7 +52,7 @@ public class CustomerController {
             result.put("customerId", customerId);
             result.put("firstName", firstName1);
             result.put("lastName", lastName);
-            result.put("productId", productId);
+            result.put("productName", productName);
             result.put("quantity", quantity);
             result.put("orderId", orderId);
             result.put("statusName", statusName);
