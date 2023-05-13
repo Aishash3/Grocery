@@ -10,7 +10,7 @@ import java.util.List;
 @Repository
 public interface OrderRepository extends JpaRepository<Orders, Long> {
 
-    @Query("SELECT c.id AS CUSTOMER_ID, c.firstName, c.lastName, p.name, o.quantity, o.id AS ORDER_ID, oh.modify_date, s.name AS STATUS_NAME FROM Orders o\n" +
+    @Query("SELECT c.firstName, p.name, o.quantity, o.id AS ORDER_ID, oh.modify_date, s.name AS STATUS_NAME FROM Orders o\n" +
             "LEFT JOIN Customer c ON o.customer.id = c.id\n" +
             "LEFT JOIN Product p ON p.id = o.product.id\n" +
             "LEFT JOIN Orders_history oh ON oh.order.id = o.id\n" +

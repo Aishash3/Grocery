@@ -22,10 +22,9 @@ public class ProductService {
 //        return employees.stream().toList();
 //    }
 
-    public List<Product> getAllProducts(Long page, Long size, String sort){
-        PageRequest pageRequest = PageRequest.of(page.intValue(), Math.toIntExact(size), Sort.by(sort));
-        Page<Product> products = productRepository.findAll(pageRequest);
-        return products.stream().toList();
+    public List<Product> getAllProducts(){
+        List<Product> products = productRepository.findAll();
+        return products;
     }
     public Product getProductByName(String productName) {
         return productRepository.getProductByName(productName);
