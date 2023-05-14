@@ -12,14 +12,11 @@ import java.util.List;
 
 @Repository
 public interface CustomerRepository extends JpaRepository<Customer, Long> {
-    List<Customer> getByFirstName(String firstName);
+    Customer getByFirstName(String firstName);
 
     Customer getByEmail(String email);
-    @Transactional
-    @Modifying
-    @Query("DELETE FROM Customer c WHERE c.firstName = :firstName")
-    void removeByFirstName(@Param("firstName") String firstName);
 
     @Query(nativeQuery = true, value = "SELECT MAX(ID) FROM CUSTOMER")
     Long getMaxId();
+
 }

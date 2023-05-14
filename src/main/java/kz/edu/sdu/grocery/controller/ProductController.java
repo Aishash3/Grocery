@@ -1,5 +1,7 @@
 package kz.edu.sdu.grocery.controller;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import kz.edu.sdu.grocery.model.entity.Product;
 import kz.edu.sdu.grocery.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/products")
@@ -17,6 +20,7 @@ public class ProductController {
     @Autowired
     ProductService productService;
 
+
     @GetMapping("/all")
     public List<Product> getAll() {
         return productService.getAllProducts();
@@ -24,6 +28,11 @@ public class ProductController {
     @GetMapping
     public Product getProductByName(@RequestParam(name = "product name") String productName){
         return productService.getProductByName(productName);
+    }
+    @GetMapping("/soldAmount")
+    @ApiOperation("Total amount of each product sold in orders")
+    public Map<String, Long> getProductsAmount(){
+        return productService.getProductAmounts();
     }
     //Aisha
     //TODO - get all products by category name, id (2 distinct methods)
