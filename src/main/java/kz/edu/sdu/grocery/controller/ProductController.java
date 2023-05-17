@@ -36,7 +36,18 @@ public class ProductController {
     }
     //Aisha
     //TODO - get all products by category name, id (2 distinct methods)
+
     //TODO - get all products whose price is higher, lower than specified one (2 methods)
+    @GetMapping("/findByPriceHigher")
+    public List<Object[]> getProductsHigherPrice(@RequestParam(name = "price") Double productPrice){
+        return productService.getProductsHigherPrice(productPrice);
+    }
+
+
+    @GetMapping("/findByPriceLower")
+    public List<Object[]> getProductsLowerPrice(@RequestParam(name = "price") Double productPrice){
+        return productService.getProductsLowerPrice(productPrice);
+    }
 
 
 

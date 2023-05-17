@@ -81,4 +81,13 @@ public class ProductService {
         }
     }
 
+
+    public List<Object[]> getProductsHigherPrice(Double productPrice){
+        return productRepository.getProductHigherPrice(productPrice);
+    }
+
+    public List<Object[]> getProductsLowerPrice(Double productPrice){
+        return productRepository.getProductLowerPrice(productPrice);
+    }
+
 }

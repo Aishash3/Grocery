@@ -6,6 +6,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
+import org.springframework.data.repository.query.Param;
 
 import java.util.*;
 
@@ -25,6 +26,13 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
             "JOIN Category AS c ON p.category = c.id\n" +
             "GROUP BY p.category")
     List<Object[]> getProductsCategoryInfo();
+
+    @Query("SELECT p.id, p.name, p.price, p.category FROM Product as p where p.price>:price")
+    List<Object[]> getProductHigherPrice(@Param("price") Double price);
+
+
+    @Query("SELECT p.id, p.name, p.price, p.category FROM Product as p where p.price<:price")
+    List<Object[]> getProductLowerPrice(@Param("price") Double price);
 
 
 
