@@ -32,7 +32,6 @@ pipeline {
         }
         stage ('Deploy') {
             steps {
-                sh 'ls -la build/libs'
                 sh 'mv -f target/*.war /usr/local/tomcat/webapps'
             }
         }
