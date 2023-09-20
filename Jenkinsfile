@@ -4,11 +4,11 @@ pipeline {
     stages {
         stage ('Build, Test and Analysis') {
             steps {
-                sh 'mvn clean package'
-                sh 'mvn jacoco:report'
+                sh './mvnw clean package'
+                sh './mvnw jacoco:report'
 
                 withSonarQubeEnv('Local') {
-                    sh 'mvn sonar:sonar'
+                    sh './mvnw sonar:sonar'
                 }
             }
             post {
