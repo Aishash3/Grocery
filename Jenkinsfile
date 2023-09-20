@@ -4,6 +4,7 @@ pipeline {
     stages {
         stage ('Build, Test and Analysis') {
             steps {
+                sh 'chmod +x mvnw'
                 sh './mvnw clean package'
                 sh './mvnw jacoco:report'
 
