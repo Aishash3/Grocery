@@ -15,9 +15,6 @@
     <packaging>war</packaging>
     <description>Demo project for Spring Boot</description>
     <properties>
-        <sonar.host.url>http://sonarqube-server:9000</sonar.host.url> <!-- Replace with your SonarQube server URL -->
-        <sonar.login>your-sonar-login-token</sonar.login> <!-- Replace with your SonarQube authentication token -->
-        <sonar.projectKey>your-project-key</sonar.projectKey> <!-- Replace with your SonarQube project key -->
         <java.version>17</java.version>
     </properties>
     <dependencies>

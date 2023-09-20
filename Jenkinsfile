@@ -8,7 +8,7 @@ pipeline {
                 sh 'mvn clean package'
                 sh 'mvn jacoco:report'
                     withSonarQubeEnv('Local') {
-                        sh './mvnw sonar:sonar'
+                        sh 'mvn sonar:sonar'
                     }
                 }
 

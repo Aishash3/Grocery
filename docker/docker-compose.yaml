@@ -14,7 +14,7 @@ services:
       - SONARQUBE_URL=http://sonarqube-server:9000
 
   jenkins:
-    image: jenkins/jenkins:lts
+    image: jenkins/jenkins:jdk17
     container_name: my-jenkins
     user: root
     ports:
