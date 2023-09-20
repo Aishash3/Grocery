@@ -4,7 +4,6 @@ pipeline {
     stages {
         stage ('Build, Test and Analysis') {
             steps {
-                sh 'chmod +x mvnw'
                 withMaven(maven: 'maven') {
                 sh 'mvn clean package'
                 sh 'mvn jacoco:report'
