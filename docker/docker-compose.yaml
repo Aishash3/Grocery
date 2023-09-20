@@ -1,0 +1,39 @@
+version: '3'
+services:
+  tomcat:
+    image: tomcat:latest
+    container_name: my-tomcat
+    ports:
+      - "8080:8080"  # Map container port 8080 to host port 8080
+    volumes:
+      - ./webapps:/usr/local/tomcat/webapps
+    depends_on:
+      - jenkins
+    environment:
+      - JENKINS_URL=http://jenkins-server:8080
+      - SONARQUBE_URL=http://sonarqube-server:9000
+
+  jenkins:
+    image: jenkins/jenkins:lts
+    container_name: my-jenkins
+    ports:
+      - "8081:8080"  # Map container port 8080 to host port 8081
+    volumes:
+      - ./jenkins_home:/var/jenkins_home
+      - ./webapps:/usr/local/tomcat/webapps
+    environment:
+      - SONARQUBE_URL=http://sonarqube-server:9000
+
+  sonarqube:
+    image: sonarqube:latest
+    container_name: my-sonarqube
+    ports:
+      - "9000:9000"  # Map container port 9000 to host port 9000
+    volumes:
+      - ./sonarqube_data:/opt/sonarqube/data
+      - ./sonarqube_extensions:/opt/sonarqube/extensions
+
+networks:
+  default:
+    external:
+      name: task_ci_cd

@@ -12,8 +12,12 @@
     <artifactId>grocery</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>grocery</name>
+    <packaging>war</packaging>
     <description>Demo project for Spring Boot</description>
     <properties>
+        <sonar.host.url>http://sonarqube-server:9000</sonar.host.url> <!-- Replace with your SonarQube server URL -->
+        <sonar.login>your-sonar-login-token</sonar.login> <!-- Replace with your SonarQube authentication token -->
+        <sonar.projectKey>your-project-key</sonar.projectKey> <!-- Replace with your SonarQube project key -->
         <java.version>17</java.version>
     </properties>
     <dependencies>
@@ -100,32 +104,33 @@
                     </excludes>
                 </configuration>
             </plugin>
-<!--            <plugin>-->
-<!--                <groupId>org.apache.maven.plugins</groupId>-->
-<!--                <artifactId>maven-compiler-plugin</artifactId>-->
-<!--                <version>${maven-compiler-plugin.version}</version>-->
-<!--                <configuration>-->
-<!--                    <source>11</source>-->
-<!--                    <target>11</target>-->
-<!--                    <annotationProcessorPaths>-->
-<!--                        <path>-->
-<!--                            <groupId>org.mapstruct</groupId>-->
-<!--                            <artifactId>mapstruct-processor</artifactId>-->
-<!--                            <version>1.5.3.Final</version>-->
-<!--                        </path>-->
-<!--                        <path>-->
-<!--                            <groupId>org.projectlombok</groupId>-->
-<!--                            <artifactId>lombok</artifactId>-->
-<!--                            <version>${lombok.version}</version>-->
-<!--                        </path>-->
-<!--                    </annotationProcessorPaths>-->
-<!--                    <compilerArgs>-->
-<!--                        <compilerArg>-->
-<!--                            -Amapstruct.defaultComponentModel=spring-->
-<!--                        </compilerArg>-->
-<!--                    </compilerArgs>-->
-<!--                </configuration>-->
-<!--            </plugin>-->
+            <!-- Other plugins -->
+            <plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <version>0.8.7</version> <!-- Use the latest version -->
+                <executions>
+                    <execution>
+                        <id>jacoco-report</id>
+                        <goals>
+                            <goal>report</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.sonarsource.scanner.maven</groupId>
+                <artifactId>sonar-maven-plugin</artifactId>
+                <version>3.9.0.2155</version> <!-- Use the latest version -->
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>3.3.1</version> <!-- Use the latest version -->
+            </plugin>
+
         </plugins>
     </build>
 
