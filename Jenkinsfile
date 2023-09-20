@@ -5,12 +5,14 @@ pipeline {
         stage ('Build, Test and Analysis') {
             steps {
                 sh 'chmod +x mvnw'
-                sh './mvnw clean package'
-                sh './mvnw jacoco:report'
-
-                withSonarQubeEnv('Local') {
-                    sh './mvnw sonar:sonar'
+                withMaven(maven: 'maven') {
+                sh 'mvn clean package'
+                sh 'mvn jacoco:report'
+                    withSonarQubeEnv('Local') {
+                        sh './mvnw sonar:sonar'
+                    }
                 }
+
             }
             post {
                 success {
