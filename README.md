@@ -103,3 +103,6 @@ http://localhost:8080/swagger-ui.html
 - Kazbek Moldir
 - Shakhali Aisha
 - Darzhanov Nurlan
+## Jenkins credentials for developer
+login: developer
+password: developer
