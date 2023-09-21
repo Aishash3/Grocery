@@ -1,7 +1,7 @@
 version: '3'
 services:
   tomcat:
-    image: tomcat:latest
+    image: tomcat:9.0-jdk21-openjdk
     container_name: my-tomcat
     ports:
       - "8080:8080"  # Map container port 8080 to host port 8080

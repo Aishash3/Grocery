@@ -33,6 +33,7 @@ pipeline {
         stage ('Deploy') {
             steps {
                 sh 'mv -f target/*.war /usr/local/tomcat/webapps'
+
             }
         }
     }
